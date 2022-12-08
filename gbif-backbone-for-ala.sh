@@ -68,8 +68,10 @@ then
     head -100000 "$B/Taxon.tsv.orig" > "$B/Taxon-tests.tsv"
   fi
 
-  echo "Spliting scientificName and scientificNameAuthorship"
+  echo "Trying to install node deps"
+  npm install
 
+  echo "Spliting scientificName and scientificNameAuthorship"
   node main.js > "$B/Taxon.tsv"
 fi
 
