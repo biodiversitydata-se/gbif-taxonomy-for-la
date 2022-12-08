@@ -32,6 +32,16 @@ Some usage help:
 
 ```bash
 gbif-taxonomy-for-la --help
+
+Options:
+      --backbone                    Download GBIF backbone
+      --name-authors                Split name and authors from the GBIF backbone
+      --namematching-distri=<nmv>   Download ALA namematching-distribution version [default: 4.2].
+      --namematching-index          Generate namematching index
+      --namematching-index-legacy   Generate namematching index legacy (pre namemaching-service)
+      --dwca                        Regenerate the dwca zip
+      --help                        Show help options.
+      --version                     Print program version.
 ```
 
 Download the gbif taxonomy, split `scientificName` and `scientificNameAuthorship`, and generate indexes using a date as file suffix:
