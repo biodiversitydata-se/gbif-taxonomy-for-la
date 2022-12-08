@@ -29,6 +29,7 @@ Options:
       --namematching-distri=<nmv>   Download ALA namematching-distribution version [default: 4.2].
       --namematching-index          Generate namematching index
       --namematching-index-legacy   Generate namematching index legacy (pre namemaching-service)
+      --dwca                        Regenerate the dwca zip
       --help                        Show help options.
       --version                     Print program version.
 ----
@@ -103,7 +104,7 @@ then
   java -Dlog4j.configuration=file:/usr/lib/nameindexer/log4j.xml -Dfile.encoding=UTF8 -Djava.util.Arrays.useLegacyMergeSort=true -Xmx8g -Xms1g \
     -jar /usr/lib/nameindexer/nameindexer.*jar -all --dwca $B --irmng /data/lucene/sources/IRMNG_DWC_HOMONYMS --common $B/VernacularName.tsv
 
-  mv namematching $NTLO
+  cp -a /data/lucene/namematching $NTLO
   tar cfz $NTL $NTLO
   echo "Generated $NTL"
 fi
@@ -135,8 +136,12 @@ then
   echo "Generated $NT"
 fi
 
-if [[ -f "$T/gbif-backbone-$release_date.zip" ]]
+if ($dwca)
 then
-  rm $T/gbif-backbone-$release_date.zip
+  if [[ -f "$T/gbif-backbone-$release_date.zip" ]]
+  then
+    rm $T/gbif-backbone-$release_date.zip
+  fi
+
   (cd $T/; zip gbif-backbone-$release_date.zip backbone/* --exclude Taxon.tsv.orig Taxon-tests.tsv issues.tsv)
 fi
