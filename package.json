@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "csv-parse": "^5.3.2",
+    "csv-stringify": "^6.2.2",
+    "stream-transform": "^3.2.1"
+  }
+}
