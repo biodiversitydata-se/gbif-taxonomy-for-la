@@ -20,7 +20,7 @@ The resulting indexes are published in updated LA ansible inventories (those gen
 To run this you'll need to install first: 
 
 - [dopopts](https://github.com/docopt/docopts)
-- legacy nameindexer playbook executed in the server you'll use. So  /data/lucene should exists
+- legacy nameindexer playbook executed in the server you'll use. For instance `/data/lucene` should exists
 - node/npm
 - tar
 - zip
@@ -30,15 +30,21 @@ To run this you'll need to install first:
 
 Some usage help:
 
-`gbif-taxonomy-for-la --help`
+```bash
+gbif-taxonomy-for-la --help
+```
 
 Download the gbif taxonomy, split `scientificName` and `scientificNameAuthorship`, and generate indexes using a date as file suffix:
 
-`gbif-taxonomy-for-la --backbone --name-authors  --namematching-index --namematching-index-legacy 2022-11-23`
+```bash
+gbif-taxonomy-for-la --backbone --name-authors  --namematching-index --namematching-index-legacy 2022-11-23
+```
 
 Just generate the indexes:
 
-`gbif-taxonomy-for-la --namematching-index --namematching-index-legacy 2022-11-23`
+```bash
+gbif-taxonomy-for-la --namematching-index --namematching-index-legacy 2022-11-23
+```
 
 ## Tests
 
