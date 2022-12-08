@@ -1,10 +1,11 @@
 # gbif-taxonomy-for-la
 
-Utilities to adapt the GBIF Backbone Taxonomy for it usage by LA portals
+Utilities to adapt the [GBIF Backbone Taxonomy](https://www.gbif.org/dataset/d7dddbf4-2cf0-4f39-9b2a-bb099caae36c) for it usage by LA portals
 
 ## Introduction
 
 This is a set of utilities to convert the GBIF Backbone Taxonony for it usage by LA portals. This consist in:
+
 - Separate scientificName and scientificNameAuthorship
 - Detect issues during this convertion that can be reported back to GBIF
 - Workaround for some issues in the taxonomy that prevent the nameindexer to work properly
