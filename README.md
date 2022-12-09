@@ -34,7 +34,7 @@ Some usage help:
 gbif-taxonomy-for-la --help
 
 Options:
-      --backbone                    Download GBIF backbone
+      --backbone                    Download GBIF backbone taxonomy
       --name-authors                Split name and authors from the GBIF backbone
       --namematching-distri=<nmv>   Download ALA namematching-distribution version [default: 4.2].
       --namematching-index          Generate namematching index
