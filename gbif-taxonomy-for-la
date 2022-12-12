@@ -84,9 +84,14 @@ then
   (cd "$T/ala-name-matching-distri-$namematching_distri/"; unzip -q "ala-name-matching-distribution-$namematching_distri-distribution.zip")
 fi
 
-# Fix for: https://github.com/gbif/portal-feedback/issues/3781
+echo Fixing: https://github.com/gbif/portal-feedback/issues/3781
 egrep -v '^2925549	\\.*The Woody Plants of Korea' "$B/VernacularName.tsv" > "$B/VernacularName.tsv.fixed"
 mv "$B/VernacularName.tsv.fixed" "$B/VernacularName.tsv"
+
+echo Trying to patch col_vernacular.txt
+cp col_vernacular.txt.patch /data/lucene/sources
+OUT="$(cd /data/lucene/sources; patch -p0 -r - --forward < col_vernacular.txt.patch)" || echo "${OUT}" | grep "Skipping patch" -q || (echo "$OUT" && false);
+echo $OUT
 
 if ($namematching_index_legacy)
 then

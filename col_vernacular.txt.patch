@@ -1,0 +1,92 @@
+--- col_vernacular.txt	2022-12-10 19:12:27.996000000 +0100
++++ col_vernacular.txt.orig	2022-12-10 19:09:05.924000000 +0100
+@@ -27802,7 +27802,8 @@
+ "10062691"	"urn:lsid:catalogueoflife.org:taxon:2c73faa8-4661-11e1-9b0d-e752e483e0da:col20120124"	"Aphyosemion australe"	"Lyretail panchax"	"eng"	""
+ "10062691"	"urn:lsid:catalogueoflife.org:taxon:2c73faa8-4661-11e1-9b0d-e752e483e0da:col20120124"	"Aphyosemion australe"	"Kirjoviiripyrstö"	"fin"	""
+ "10062691"	"urn:lsid:catalogueoflife.org:taxon:2c73faa8-4661-11e1-9b0d-e752e483e0da:col20120124"	"Aphyosemion australe"	"Killi"	"fra"	""
+-"10062691"	"urn:lsid:catalogueoflife.org:taxon:2c73faa8-4661-11e1-9b0d-e752e483e0da:col20120124"	"Aphyosemion australe"	"Kap Lopez"	"dan"	""
++"10062691"	"urn:lsid:catalogueoflife.org:taxon:2c73faa8-4661-11e1-9b0d-e752e483e0da:col20120124"	"Aphyosemion australe"	"Kap Lopez\
++]"	"dan"	""
+ "10062691"	"urn:lsid:catalogueoflife.org:taxon:2c73faa8-4661-11e1-9b0d-e752e483e0da:col20120124"	"Aphyosemion australe"	"Kap Lopez"	"deu"	""
+ "10062691"	"urn:lsid:catalogueoflife.org:taxon:2c73faa8-4661-11e1-9b0d-e752e483e0da:col20120124"	"Aphyosemion australe"	"Kap Lopez"	"swe"	""
+ "10062691"	"urn:lsid:catalogueoflife.org:taxon:2c73faa8-4661-11e1-9b0d-e752e483e0da:col20120124"	"Aphyosemion australe"	"Gold lyretail"	"eng"	""
+@@ -31648,7 +31649,8 @@
+ "10054345"	"urn:lsid:catalogueoflife.org:taxon:2c56bc96-4661-11e1-9b0d-e752e483e0da:col20120124"	"Anguilla anguilla"	"Majetica"	"ita"	""
+ "10054345"	"urn:lsid:catalogueoflife.org:taxon:2c56bc96-4661-11e1-9b0d-e752e483e0da:col20120124"	"Anguilla anguilla"	"Magliola"	"ita"	""
+ "10054345"	"urn:lsid:catalogueoflife.org:taxon:2c56bc96-4661-11e1-9b0d-e752e483e0da:col20120124"	"Anguilla anguilla"	"Magnaranocchie"	"ita"	""
+-"10054345"	"urn:lsid:catalogueoflife.org:taxon:2c56bc96-4661-11e1-9b0d-e752e483e0da:col20120124"	"Anguilla anguilla"	"Macchione"	"ita"	""
++"10054345"	"urn:lsid:catalogueoflife.org:taxon:2c56bc96-4661-11e1-9b0d-e752e483e0da:col20120124"	"Anguilla anguilla"	"Macchione\
++acchione"	"ita"	""
+ "10054345"	"urn:lsid:catalogueoflife.org:taxon:2c56bc96-4661-11e1-9b0d-e752e483e0da:col20120124"	"Anguilla anguilla"	"Llsywen"	"cym"	""
+ "10054345"	"urn:lsid:catalogueoflife.org:taxon:2c56bc96-4661-11e1-9b0d-e752e483e0da:col20120124"	"Anguilla anguilla"	"Leptocéphale"	"fra"	""
+ "10054345"	"urn:lsid:catalogueoflife.org:taxon:2c56bc96-4661-11e1-9b0d-e752e483e0da:col20120124"	"Anguilla anguilla"	"Kracica"	"hrv"	""
+@@ -54947,7 +54949,8 @@
+ "10062767"	"urn:lsid:catalogueoflife.org:taxon:2c601cec-4661-11e1-9b0d-e752e483e0da:col20120124"	"Epiplatys chaperi"	"Goldküsten-Hechtling"	"deu"	""
+ "10062767"	"urn:lsid:catalogueoflife.org:taxon:2c601cec-4661-11e1-9b0d-e752e483e0da:col20120124"	"Epiplatys chaperi"	"Dzorkpletoe"	"ewe"	""
+ "10085601"	"urn:lsid:catalogueoflife.org:taxon:2c24f622-4661-11e1-9b0d-e752e483e0da:col20120124"	"Epiplatys sexfasciatus sexfasciatus"	"Dzorkpletoe"	"ewe"	""
+-"10062767"	"urn:lsid:catalogueoflife.org:taxon:2c601cec-4661-11e1-9b0d-e752e483e0da:col20120124"	"Epiplatys chaperi"	"Chapers panchax"	"dan"	""
++"10062767"	"urn:lsid:catalogueoflife.org:taxon:2c601cec-4661-11e1-9b0d-e752e483e0da:col20120124"	"Epiplatys chaperi"	"Chapers panchax\
++]"	"dan"	""
+ "10062765"	"urn:lsid:catalogueoflife.org:taxon:2c9b62d8-4661-11e1-9b0d-e752e483e0da:col20120124"	"Epiplatys biafranus"	"Metallivaanija"	"fin"	""
+ "10062765"	"urn:lsid:catalogueoflife.org:taxon:2c9b62d8-4661-11e1-9b0d-e752e483e0da:col20120124"	"Epiplatys biafranus"	"Biafra-Hechtling"	"deu"	""
+ "10062765"	"urn:lsid:catalogueoflife.org:taxon:2c9b62d8-4661-11e1-9b0d-e752e483e0da:col20120124"	"Epiplatys biafranus"	"雙非扁鮰"	"cmn"	""
+@@ -96697,7 +96700,8 @@
+ "10085709"	"urn:lsid:catalogueoflife.org:taxon:2c87db5a-4661-11e1-9b0d-e752e483e0da:col20120124"	"Oreochromis shiranus shiranus"	"Mphende"	"nya"	""
+ "10068259"	"urn:lsid:catalogueoflife.org:taxon:2c5f2534-4661-11e1-9b0d-e752e483e0da:col20120124"	"Tilapia rendalli"	"Mpende"	"038"	""
+ "10067876"	"urn:lsid:catalogueoflife.org:taxon:2c5e06b2-4661-11e1-9b0d-e752e483e0da:col20120124"	"Oreochromis tanganicae"	"Mpende"	"038"	""
+-"10068259"	"urn:lsid:catalogueoflife.org:taxon:2c5f2534-4661-11e1-9b0d-e752e483e0da:col20120124"	"Tilapia rendalli"	"Mojarra"	"spa"	""
++"10068259"	"urn:lsid:catalogueoflife.org:taxon:2c5f2534-4661-11e1-9b0d-e752e483e0da:col20120124"	"Tilapia rendalli"	"Mojarra\
++Mojarra"	"spa"	""
+ "10068259"	"urn:lsid:catalogueoflife.org:taxon:2c5f2534-4661-11e1-9b0d-e752e483e0da:col20120124"	"Tilapia rendalli"	"Kayabo"	"002"	""
+ "10068259"	"urn:lsid:catalogueoflife.org:taxon:2c5f2534-4661-11e1-9b0d-e752e483e0da:col20120124"	"Tilapia rendalli"	"Kapa"	"053"	""
+ "10085565"	"urn:lsid:catalogueoflife.org:taxon:2cac70b5-4661-11e1-9b0d-e752e483e0da:col20120124"	"Cyprinus carpio carpio"	"Kapa"	"ven"	""
+@@ -228440,7 +228444,8 @@
+ "10055427"	"urn:lsid:catalogueoflife.org:taxon:2c82fc32-4661-11e1-9b0d-e752e483e0da:col20120124"	"Beryx decadactylus"	"Nanyou-kinme"	"jpn"	""
+ "10055427"	"urn:lsid:catalogueoflife.org:taxon:2c82fc32-4661-11e1-9b0d-e752e483e0da:col20120124"	"Beryx decadactylus"	"Nanyo-kinmedai"	"jpn"	""
+ "10055427"	"urn:lsid:catalogueoflife.org:taxon:2c82fc32-4661-11e1-9b0d-e752e483e0da:col20120124"	"Beryx decadactylus"	"Nanyôkinme"	"jpn"	""
+-"10055427"	"urn:lsid:catalogueoflife.org:taxon:2c82fc32-4661-11e1-9b0d-e752e483e0da:col20120124"	"Beryx decadactylus"	"Melo"	"por"	""
++"10055427"	"urn:lsid:catalogueoflife.org:taxon:2c82fc32-4661-11e1-9b0d-e752e483e0da:col20120124"	"Beryx decadactylus"	"Melo\
++Melo"	"por"	""
+ "10055427"	"urn:lsid:catalogueoflife.org:taxon:2c82fc32-4661-11e1-9b0d-e752e483e0da:col20120124"	"Beryx decadactylus"	"Longfinned beryx"	"eng"	""
+ "10055427"	"urn:lsid:catalogueoflife.org:taxon:2c82fc32-4661-11e1-9b0d-e752e483e0da:col20120124"	"Beryx decadactylus"	"Limapää"	"fin"	""
+ "10055427"	"urn:lsid:catalogueoflife.org:taxon:2c82fc32-4661-11e1-9b0d-e752e483e0da:col20120124"	"Beryx decadactylus"	"Kum-nun-dom"	"kor"	""
+@@ -229034,7 +229039,8 @@
+ "10072308"	"urn:lsid:catalogueoflife.org:taxon:2c8203d0-4661-11e1-9b0d-e752e483e0da:col20120124"	"Xiphias gladius"	"Mayas-pas"	"001"	""
+ "10072308"	"urn:lsid:catalogueoflife.org:taxon:2c8203d0-4661-11e1-9b0d-e752e483e0da:col20120124"	"Xiphias gladius"	"Mas-hibaru"	"016"	""
+ "10072308"	"urn:lsid:catalogueoflife.org:taxon:2c8203d0-4661-11e1-9b0d-e752e483e0da:col20120124"	"Xiphias gladius"	"Manumbuk"	"008"	""
+-"10072308"	"urn:lsid:catalogueoflife.org:taxon:2c8203d0-4661-11e1-9b0d-e752e483e0da:col20120124"	"Xiphias gladius"	"Malasugi"	"bik"	""
++"10072308"	"urn:lsid:catalogueoflife.org:taxon:2c8203d0-4661-11e1-9b0d-e752e483e0da:col20120124"	"Xiphias gladius"	"Malasugi\
++Malasugi"	"bik"	""
+ "10072308"	"urn:lsid:catalogueoflife.org:taxon:2c8203d0-4661-11e1-9b0d-e752e483e0da:col20120124"	"Xiphias gladius"	"Macokljun"	"srp"	""
+ "10072308"	"urn:lsid:catalogueoflife.org:taxon:2c8203d0-4661-11e1-9b0d-e752e483e0da:col20120124"	"Xiphias gladius"	"Lokjan"	"mah"	""
+ "10072308"	"urn:lsid:catalogueoflife.org:taxon:2c8203d0-4661-11e1-9b0d-e752e483e0da:col20120124"	"Xiphias gladius"	"Kiliç baligi"	"tur"	""
+@@ -243869,7 +243875,8 @@
+ "10063492"	"urn:lsid:catalogueoflife.org:taxon:2c5b4684-4661-11e1-9b0d-e752e483e0da:col20120124"	"Trisopterus minutus"	"Moliè"	"slv"	""
+ "10063492"	"urn:lsid:catalogueoflife.org:taxon:2c5b4684-4661-11e1-9b0d-e752e483e0da:col20120124"	"Trisopterus minutus"	"Mol pišmoljic"	"hrv"	""
+ "10063492"	"urn:lsid:catalogueoflife.org:taxon:2c5b4684-4661-11e1-9b0d-e752e483e0da:col20120124"	"Trisopterus minutus"	"Merluzzo cappellano"	"ita"	""
+-"10063492"	"urn:lsid:catalogueoflife.org:taxon:2c5b4684-4661-11e1-9b0d-e752e483e0da:col20120124"	"Trisopterus minutus"	"Merluzziello"	"ita"	""
++"10063492"	"urn:lsid:catalogueoflife.org:taxon:2c5b4684-4661-11e1-9b0d-e752e483e0da:col20120124"	"Trisopterus minutus"	"Merluzziello\
++Merluzziello"	"ita"	""
+ "10063492"	"urn:lsid:catalogueoflife.org:taxon:2c5b4684-4661-11e1-9b0d-e752e483e0da:col20120124"	"Trisopterus minutus"	"Merluzzetto"	"ita"	""
+ "10063492"	"urn:lsid:catalogueoflife.org:taxon:2c5b4684-4661-11e1-9b0d-e752e483e0da:col20120124"	"Trisopterus minutus"	"Merluzzetta"	"ita"	""
+ "10063492"	"urn:lsid:catalogueoflife.org:taxon:2c5b4684-4661-11e1-9b0d-e752e483e0da:col20120124"	"Trisopterus minutus"	"Merlutso"	"ara"	""
+@@ -260499,7 +260506,8 @@
+ "10069907"	"urn:lsid:catalogueoflife.org:taxon:2cc8c7a7-4661-11e1-9b0d-e752e483e0da:col20120124"	"Alectis indica"	"Mirror fish"	"eng"	""
+ "10069907"	"urn:lsid:catalogueoflife.org:taxon:2cc8c7a7-4661-11e1-9b0d-e752e483e0da:col20120124"	"Alectis indica"	"Menaut bung"	"zlm"	""
+ "10069907"	"urn:lsid:catalogueoflife.org:taxon:2cc8c7a7-4661-11e1-9b0d-e752e483e0da:col20120124"	"Alectis indica"	"Mamsa Amerikano"	"057"	""
+-"10069907"	"urn:lsid:catalogueoflife.org:taxon:2cc8c7a7-4661-11e1-9b0d-e752e483e0da:col20120124"	"Alectis indica"	"Mamsa"	"bik"	""
++"10069907"	"urn:lsid:catalogueoflife.org:taxon:2cc8c7a7-4661-11e1-9b0d-e752e483e0da:col20120124"	"Alectis indica"	"Mamsa\
++Mamsa"	"bik"	""
+ "10069907"	"urn:lsid:catalogueoflife.org:taxon:2cc8c7a7-4661-11e1-9b0d-e752e483e0da:col20120124"	"Alectis indica"	"Lawi-an"	"076"	""
+ "10069907"	"urn:lsid:catalogueoflife.org:taxon:2cc8c7a7-4661-11e1-9b0d-e752e483e0da:col20120124"	"Alectis indica"	"Large thread-fin jackfish"	"eng"	""
+ "10069907"	"urn:lsid:catalogueoflife.org:taxon:2cc8c7a7-4661-11e1-9b0d-e752e483e0da:col20120124"	"Alectis indica"	"Kwee rombeh"	"zlm"	""
+@@ -349746,7 +349754,8 @@
+ "10085771"	"urn:lsid:catalogueoflife.org:taxon:2c6ecd8a-4661-11e1-9b0d-e752e483e0da:col20120124"	"Pseudocrenilabrus multicolor multicolor"	"Egyptian mouth-brooder"	"eng"	""
+ "10085771"	"urn:lsid:catalogueoflife.org:taxon:2c6ecd8a-4661-11e1-9b0d-e752e483e0da:col20120124"	"Pseudocrenilabrus multicolor multicolor"	"Vielfarbiger Maulbrüter"	"deu"	""
+ "10085771"	"urn:lsid:catalogueoflife.org:taxon:2c6ecd8a-4661-11e1-9b0d-e752e483e0da:col20120124"	"Pseudocrenilabrus multicolor multicolor"	"Liten Munruvare"	"swe"	""
+-"10085771"	"urn:lsid:catalogueoflife.org:taxon:2c6ecd8a-4661-11e1-9b0d-e752e483e0da:col20120124"	"Pseudocrenilabrus multicolor multicolor"	"Lille mundruger"	"dan"	""
++"10085771"	"urn:lsid:catalogueoflife.org:taxon:2c6ecd8a-4661-11e1-9b0d-e752e483e0da:col20120124"	"Pseudocrenilabrus multicolor multicolor"	"Lille mundruger \
++35"	"dan"	""
+ "10085771"	"urn:lsid:catalogueoflife.org:taxon:2c6ecd8a-4661-11e1-9b0d-e752e483e0da:col20120124"	"Pseudocrenilabrus multicolor multicolor"	"Kleiner Maulbrüter"	"deu"	""
+ "10085771"	"urn:lsid:catalogueoflife.org:taxon:2c6ecd8a-4661-11e1-9b0d-e752e483e0da:col20120124"	"Pseudocrenilabrus multicolor multicolor"	"Kirjosuuhautoja"	"fin"	""
+ "10085771"	"urn:lsid:catalogueoflife.org:taxon:2c6ecd8a-4661-11e1-9b0d-e752e483e0da:col20120124"	"Pseudocrenilabrus multicolor multicolor"	"雜色褶唇麗魚"	"cmn"	""
