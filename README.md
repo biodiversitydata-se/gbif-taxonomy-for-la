@@ -6,7 +6,7 @@ Utilities to adapt the [GBIF Backbone Taxonomy](https://www.gbif.org/dataset/d7d
 
 This is a set of utilities to convert the GBIF Backbone Taxonony for it usage by LA portals. This consist in:
 
-- Download the current GBIB backbone taxonomy and some dependencies 
+- Download the current GBIB backbone taxonomy and [some dependencies](https://github.com/AtlasOfLivingAustralia/ala-name-matching) 
 - Separate `scientificName` and `scientificNameAuthorship` from `Taxon.txv`
 - Detect issues during this convertion that can be reported back to GBIF (see `target/backbone/issues.tsv`).
 - Workaround for some issues in the taxonomy that prevent the nameindexer to work properly.
