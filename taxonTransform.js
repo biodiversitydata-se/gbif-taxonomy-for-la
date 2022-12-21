@@ -29,9 +29,11 @@ function taxonTransform(record, stats = { authorWithQuote: 0, scientifiNameWithU
     if (hasCanonicalName) {
       // Try to remove it from scientifiName
       if (record[5].endsWith(" " + record[6])) {
+        // name[space]author
         record[5] = record[5].replace(new RegExp(" " + escapeRegex(record[6]) + '$'), '');
         stats.splitted++;
       } else if (record[5].endsWith("_" + record[6])) {
+        // name_author
         record[5] = record[5].replace(new RegExp("_" + escapeRegex(record[6]) + '$'), '');
         stats.scientifiNameWithUnderscore++
         stats.splitted++;
@@ -42,6 +44,15 @@ function taxonTransform(record, stats = { authorWithQuote: 0, scientifiNameWithU
         stats.authorWithQuote++;
         stats.splitted++;
         stringifier.write(origRecord.concat([ "AUTHOR_STARS_WITH_QUOTE" ]));
+      } else if (record[5].endsWith(" " + record[6].replace(/ , /, ", "))) {
+        // name[space],[space]author
+        record[5] = record[5].replace(new RegExp(" " + escapeRegex(record[6].replace(/ , /, ", ")) + '$'), '');
+        record[6] = record[6].replace(/ , /, ", ");
+        stats.splitted++;
+      } else if (record[5].startsWith(record[7])) {
+        // Let's try to use cannonical name (this will not work for subsp., var., f., nothosubsp. y nothovar.)
+        record[5] = record[7];
+        // stats??
       }
     } else {
       // no canonicalName so we try to remove author from sciName if it's there
