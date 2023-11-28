@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 T=./target
 B=$T/backbone
 DATE=$(date +%Y-%m-%d_%H-%M)
@@ -53,7 +55,7 @@ then
   then
     mv "$T/backbone" "$T/backbone-pre-$DATE"
   fi
-  (cd $T; unzip -q backbone.zip)
+  (cd $T; mkdir backbone; cd backbone; unzip -q ../backbone.zip)
   rm "$T/backbone.zip"
 fi
 
