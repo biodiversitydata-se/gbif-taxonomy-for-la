@@ -3,7 +3,8 @@ const { taxonTransform, parser, stringifier } = require("../taxonTransform.js");
 const { parse } = require("csv-parse/sync");
 const { log } = console;
 const fs = require('fs');
-const taxonFile = './target/backbone/Taxon.tsv.orig';
+
+const taxonFile = process.env.TAXON_FILE;
 
 const { exec } = require('child_process');
 
@@ -24,7 +25,7 @@ function grepName(name, done) {
 
 describe("Check basic taxon scientificName and scientificNameAuthorship transform", function() {
 
-  describe("taxon.txv checking", function() {
+  describe("taxon.tsv checking", function() {
     it("taxon.tsv.orig should exist", function() {
       assert.equal(fs.existsSync(taxonFile), true);
     });
@@ -87,7 +88,7 @@ describe("Check basic taxon scientificName and scientificNameAuthorship transfor
 
   describe("scientificName and scientificNameAuthorshipe split Anaerofustis stercorihominis_A", function() {
     it("should return correct splitted", function(done) {
-      grepName("Anaerofustis stercorihominis_A", function(line) {
+      grepName("Anaerofustis stercorihominis A", function(line) {
         const record = taxonTransform(parse(line, {quote: null, delimiter: '\t'})[0]);
         assert.equal(record[5], "Anaerofustis stercorihominis");
         assert.equal(record[6], "A");
@@ -197,10 +198,10 @@ describe("Check basic taxon scientificName and scientificNameAuthorship transfor
 
   describe("scientificName and scientificNameAuthorshipe split Hippomarathrum montanum subsp. montanum", function() {
     it("should return correct splitted ", function(done) {
-      grepName("Hippomarathrum montanum subsp. montanum", function(line) {
+      grepName("Hippomarathrum montanum subsp. polyphyllum", function(line) {
         const record = taxonTransform(parse(line, {quote: null, delimiter: '\t'})[0]);
-        assert.equal(record[5], "Hippomarathrum montanum subsp. montanum");
-        assert.equal(record[6], "");
+        assert.equal(record[5], "Hippomarathrum montanum subsp. polyphyllum");
+        assert.equal(record[6], "(Ten.)");
         done();
       });
     });

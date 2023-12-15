@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [[ ! -d target ]]; then
+  mkdir target
+fi
+
+docker run -v "$(pwd)/target:/data/lucene/target" gbif-taxonomy-for-la "$@"

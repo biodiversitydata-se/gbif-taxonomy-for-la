@@ -3,11 +3,11 @@ const { transform } = require('stream-transform');
 const fs = require('fs');
 const { taxonTransform, parser, stringifier } = require("./taxonTransform.js");
 
-var justTest = false;
+var inputFile = process.argv[2];
+var issuesFile = process.argv[3];
 
-var readStream = fs.createReadStream(!justTest? "./target/backbone/Taxon.tsv.orig" : "./target/backbone/Taxon-tests.tsv");
-var issuesStream = fs.createWriteStream("./target/backbone/issues.tsv");
-// var taxonResultStream = fs.createWriteStream("./target/backbone/Taxon.tsv");
+var readStream = fs.createReadStream(inputFile);
+var issuesStream = fs.createWriteStream(issuesFile);
 
 Object.defineProperty(String.prototype, 'capitalize', {
   value: function() {
