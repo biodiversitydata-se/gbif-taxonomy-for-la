@@ -57,6 +57,7 @@ then
   then
     mv "$T/backbone" "$T/backbone-pre-$DATE"
   fi
+  echo "Unzipping backbone"
   (cd $T; mkdir backbone; cd backbone; unzip -q $T/backbone.zip)
   rm "$T/backbone.zip"
 
@@ -79,7 +80,7 @@ then
       echo "$output" >> "$B/Taxon-tests.tsv"
     fi
   done
-  echo "Spliting scientificName and scientificNameAuthorship"
+  echo "Splitting scientificName and scientificNameAuthorship"
   node main.js "$B/Taxon-tests.tsv" "$B/issues.tsv" > "$B/Taxon.tsv"
 fi
 
@@ -88,7 +89,7 @@ then
   echo "Trying to install node deps"
   npm install
 
-  echo "Spliting scientificName and scientificNameAuthorship"
+  echo "Splitting scientificName and scientificNameAuthorship"
   node main.js "$B/Taxon.tsv.orig" "$B/issues.tsv" > "$B/Taxon.tsv"
 fi
 
