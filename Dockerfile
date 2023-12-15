@@ -49,7 +49,7 @@ RUN mkdir /data/lucene/target/
 COPY package*.json ./
 RUN npm install
 
-COPY col_vernacular.txt.patch  main.js taxonTransform.js gbif-taxonomy-for-la .
+COPY col_vernacular.txt.patch  main.js taxonTransform.js gbif-taxonomy-for-la ./
 COPY test test
 
 VOLUME /data/lucene/target
