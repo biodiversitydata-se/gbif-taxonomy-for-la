@@ -1,6 +1,6 @@
 FROM openjdk:11-jre-slim
 
-RUN apt-get update && apt-get install -y wget unzip curl bash
+RUN apt-get update && apt-get install -y wget zip unzip curl bash
 
 ARG NODE_VERSION=18
 ARG URL_IRMNG=https://www.irmng.org/export/IRMNG_genera_DwCA.zip
