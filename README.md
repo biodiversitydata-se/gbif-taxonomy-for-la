@@ -29,9 +29,13 @@ To run this you'll need to install first:
 ## Usage
 
 Some usage help:
+```
+docker build . --tag gbif-taxonomy-for-la 
+```
+ and with the image ready:
 
 ```bash
-gbif-taxonomy-for-la --help
+./gbif-taxonomy-for-la-docker --help
 
 Options:
       --backbone                    Download GBIF backbone taxonomy
@@ -44,21 +48,31 @@ Options:
       --version                     Print program version.
 ```
 
-Download the gbif taxonomy, split `scientificName` and `scientificNameAuthorship`, and generate indexes using a date as file suffix:
+Download the gbif taxonomy:
 
 ```bash
-gbif-taxonomy-for-la --backbone --name-authors  --namematching-index --namematching-index-legacy 2022-11-23
+./gbif-taxonomy-for-la-docker --backbone 2023-12-18
+```
+
+Split `scientificName` and `scientificNameAuthorship`, and generate indexes using a date as file suffix:
+
+```bash
+./gbif-taxonomy-for-la-docker --namematching-distri=4.2 --name-authors  --namematching-index --namematching-index-legacy 2023-12-18
 ```
 
 Just generate the indexes:
 
 ```bash
-gbif-taxonomy-for-la --namematching-index --namematching-index-legacy 2022-11-23
+./gbif-taxonomy-for-la-docker --namematching-index --namematching-index-legacy 2023-12-18
 ```
 
 ## Tests
 
-Just run `mocha`.
+```
+./gbif-taxonomy-for-la-docker --backbone --prepare-tests --tests 20231218 
+
+./gbif-taxonomy-for-la-docker --prepare-tests --tests 20231218 
+```
 
 ## Contributing
 
