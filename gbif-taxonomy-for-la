@@ -131,7 +131,7 @@ then
 #  java -Dlog4j.configuration=file:/usr/lib/nameindexer/log4j.xml -Dfile.encoding=UTF8 -Djava.util.Arrays.useLegacyMergeSort=true -Xmx8g -Xms1g \
 #    -jar /usr/lib/nameindexer/nameindexer.*jar -all --dwca $B --irmng /data/lucene/sources/IRMNG_DWC_HOMONYMS
 
-  /usr/lib/nameindexer/index.sh --all --dwca "$B" --target /data/lucene/namematching --irmng /data/lucene/sources/IRMNG_DWC_HOMONYMS/ --common "$B/VernacularName.tsv"
+  /usr/lib/nameindexer/index.sh --all --dwca "$B" --target /data/lucene/namematching --irmng /data/lucene/sources/IRMNG_DWC_HOMONYMS/ # --common "$B/VernacularName.tsv"
 
   cp -a /data/lucene/namematching "$T/$NTLO"
   (cd "$T"; tar cvfz "$NTL" "$NTLO")
@@ -160,7 +160,7 @@ then
     rm "$T/$NT"
   fi
 
-  (cd "$T/ala-name-matching-distri-$namematching_distri/"; chmod +x ./index.sh ; ./index.sh --all --dwca "$B" --target "$T/$NTO" --irmng /data/lucene/sources/IRMNG_DWC_HOMONYMS/ --common "$B/VernacularName.tsv")
+  (cd "$T/ala-name-matching-distri-$namematching_distri/"; chmod +x ./index.sh ; ./index.sh --all --dwca "$B" --target "$T/$NTO" --irmng /data/lucene/sources/IRMNG_DWC_HOMONYMS/ ) # --common "$B/VernacularName.tsv")
 
   (cd "$T"; tar cvfz "$NT" "$NTO")
 fi
