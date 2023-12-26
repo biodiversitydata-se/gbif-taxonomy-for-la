@@ -1,12 +1,14 @@
+const waitOn = require("wait-on");
 const assert = require("assert");
 const { taxonTransform, parser, stringifier } = require("../taxonTransform.js");
 const { parse } = require("csv-parse/sync");
 const { log } = console;
 const fs = require('fs');
+const kill = require('tree-kill');
+const { exec } = require('child_process');
+const axios = require('axios');
 
 const taxonFile = process.env.TAXON_FILE;
-
-const { exec } = require('child_process');
 
 function grep(name, filename, done) {
   exec("grep -m 1 '" + name + "' " + filename, { timeout: 50000 }, (err, stdout) => {
@@ -22,6 +24,45 @@ function grepName(name, done) {
   });
 }
 
+let serviceProcess = null;
+
+before(function(done) {
+  this.timeout(60000);
+
+  serviceProcess = exec("java -jar /data/ala-namematching-server.jar server /data/config.yml");
+
+  serviceProcess.stdout.on('data', (data) => {
+    console.log(`stdout: ${data}`);
+  });
+
+  serviceProcess.stderr.on('data', (data) => {
+    console.error(`stderr: ${data}`);
+  });
+
+  serviceProcess.on('error', (error) => {
+    console.error(`Error starting service: ${error}`);
+  });
+
+  waitOn({
+    resources: ["http://localhost:9179"],
+    delay: 10000,
+    timeout: 30000,
+  }, err => {
+    if (err) {
+      console.error(`Error waiting for service: ${err}`);
+      return done(err);
+    }
+    console.log("Namematching service ready");
+    done(); 
+  });
+});
+
+after(function() {
+  if (serviceProcess) {
+    kill(serviceProcess.pid); 
+    console.log("Service process terminated");
+  }
+});
 
 describe("Check basic taxon scientificName and scientificNameAuthorship transform", function() {
 
@@ -229,17 +270,30 @@ describe("Check basic taxon scientificName and scientificNameAuthorship transfor
     });
   });
 
-  /*
-     describe("scientificName and scientificNameAuthorshipe split ", function() {
-     it("should return correct splitted ", function(done) {
-     grepName("", function(line) {
-     const record = taxonTransform(parse(line, {quote: null, delimiter: '\t'})[0]);
-     assert.equal(record[5], "");
-     assert.equal(record[6], "");
-     done();
-     });
-     });
-     });
-   */
+  describe('namematching homonym Test', function() {
+    it('should return the expected response for query Oenanthe', async function() {
+      const response = await axios.get('http://localhost:9179/api/search?q=Oenanthe');
+      const expectedResponse = {
+        "success": false,
+        "nameType": "SCIENTIFIC",
+        "issues": ["homonym"]
+      };
+
+      assert.deepEqual(response.data, expectedResponse);
+    });
+  });
+
+
+  describe('API Search for Cenchrus setaceus', function() {
+    it('should return the correct data for Cenchrus setaceus', async function() {
+      const response = await axios.get('http://localhost:9179/api/search?q=Cenchrus%20setaceus');
+    
+      assert.equal(response.data.success, true);
+      assert.equal(response.data.scientificName, "Cenchrus setaceus");
+      assert.equal(response.data.scientificNameAuthorship, "(Forssk.) Morrone");
+      assert.equal(response.data.taxonConceptID, "5828232");
+    });
+  });
+
 }); 
 

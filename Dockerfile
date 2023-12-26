@@ -1,6 +1,6 @@
 FROM openjdk:11-jre-slim
 
-RUN apt-get update && apt-get install -y wget zip unzip curl bash
+RUN apt-get update && apt-get install -y wget zip unzip curl bash procps
 
 ARG NODE_VERSION=18
 ARG URL_IRMNG=https://www.irmng.org/export/IRMNG_genera_DwCA.zip
@@ -48,6 +48,14 @@ RUN mkdir /data/lucene/target/
 
 COPY package*.json ./
 RUN npm install
+
+# Namematching-service using for tests
+RUN mkdir -p /data/lucene
+RUN mkdir -p /data/ala-namematching-service/config
+COPY ./subgroups.json /data/ala-namematching-service/config/subgroups.json
+COPY ./groups.json /data/ala-namematching-service/config/groups.json
+RUN wget https://nexus.ala.org.au/repository/releases/au/org/ala/names/ala-namematching-server/1.8.1/ala-namematching-server-1.8.1.jar -O /data/ala-namematching-server.jar
+COPY ./config.yml /data/config.yml
 
 COPY col_vernacular.txt.patch  main.js taxonTransform.js gbif-taxonomy-for-la ./
 COPY test test

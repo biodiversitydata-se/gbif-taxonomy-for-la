@@ -47,7 +47,7 @@ EOF
 
 if [[ ! -d "$T" ]]
 then
-  mkdir -p "$T"
+  mkdir -p "$T/tmp"
 fi
 
 if ($backbone)
@@ -95,6 +95,7 @@ fi
 
 if ($tests)
 then
+  ln -sf "$T/namematching-gbif-backbone-lucene-8-$release_date/" /data/lucene/namematching-nm
   env TAXON_FILE="$B/Taxon-tests.tsv" mocha
 fi
 
@@ -139,7 +140,8 @@ fi
 
 if ($namematching_index)
 then
-  export JAVA_OPTIONS="-Xmx3g -Xms3g -Djava.io.tmpdir=/tmp/"
+  TMPDIR="$T/tmp/"
+  export JAVA_OPTIONS="-Xmx3g -Xms3g -Djava.io.tmpdir=$TMPDIR"
 
   if [[ ! -d "$T/ala-name-matching-distri-$namematching_distri" ]]
   then

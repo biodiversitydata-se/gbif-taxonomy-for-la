@@ -4,4 +4,5 @@ if [[ ! -d target ]]; then
   mkdir target
 fi
 
-docker run -v "$(pwd)/target:/data/lucene/target" gbif-taxonomy-for-la "$@"
+docker run -v "$(pwd)/target:/data/lucene/target" --name gbif-taxonomy-for-la gbif-taxonomy-for-la "$@"
+docker rm gbif-taxonomy-for-la
