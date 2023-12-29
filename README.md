@@ -17,14 +17,7 @@ The resulting indexes are published in updated [LA ansible inventories](https://
 
 ## Dependencies
 
-To run this you'll need to install first: 
-
-- [dopopts](https://github.com/docopt/docopts)
-- legacy `nameindexer` playbook executed in the server you'll use this util. For instance `/data/lucene` should exists
-- node/npm
-- tar
-- zip
-- mocha for testing
+This tool use docker that downloads all the dependencies.
 
 ## Usage
 
