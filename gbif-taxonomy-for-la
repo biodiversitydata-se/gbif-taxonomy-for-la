@@ -30,7 +30,8 @@ Options:
       --name-authors                Split name and authors from the GBIF backbone
       --prepare-tests               Prepare tests
       --tests                       Run tests
-      --namematching-distri=<nmv>   Download ALA namematching-distribution version [default: 4.2].
+      --filter_lang=<langs>         Filter VernacularName.tsv file for given language [default: ].
+      --namematching-distri=<nmv>   Download ALA namematching-distribution version [default: 4.3].
       --namematching-index          Generate namematching index
       --namematching-index-legacy   Generate namematching index legacy (pre namemaching-service)
       --dwca                        Regenerate the dwca zip
@@ -65,6 +66,46 @@ then
     echo "Taxon.tsv.orig doesn't exist. Creating it"
     mv "$B/Taxon.tsv" "$B/Taxon.tsv.orig"
   fi
+  if [ ! -z "${filter_lang}" ]; then
+    if [[ ! -f "$B/VernacularName.tsv.orig" ]]; then
+      echo "VernacularName.tsv.orig doesn't exist. Creating it"
+      mv "$B/VernacularName.tsv" "$B/VernacularName.tsv.orig"
+    fi
+    input_file="$B/VernacularName.tsv.orig"
+    output_file="$B/VernacularName.tsv"
+    column_name="language"        # Specify the column name
+    language_codes=$filter_lang   # Specify the comma-separated list of language codes
+
+    # Extract the column number dynamically based on the header
+    column_number=$(awk -F'\t' -v column_name="$column_name" 'NR==1 {for (i=1; i<=NF; i++) if ($i == column_name) {print i; exit}}' "$input_file")
+
+    # Check if the column name exists
+    if [ -z "$column_number" ]; then
+        echo "Error: Column '$column_name' not found in the input file."
+        exit 1
+    fi
+
+    # Convert the language codes to a pattern for awk
+    language_pattern=$(echo "$language_codes" | tr ',' '|')
+
+    # Print the header to the output file
+    awk -F'\t' 'NR==1 {print; exit}' "$input_file" > "$output_file"
+
+    # Filter rows based on the specified column and case-insensitive language codes, and append to the output file
+    awk -v column_number="$column_number" -v language_pattern="$language_pattern" -F'\t' 'tolower($column_number) ~ tolower(language_pattern)' "$input_file" >> "$output_file"
+
+    echo "Filtered data saved to $output_file"
+  fi
+
+  #echo Fixing: https://github.com/gbif/portal-feedback/issues/3781
+  #egrep -v '^2925549	\\.*The Woody Plants of Korea' "$B/VernacularName.tsv" > "$B/VernacularName.tsv.fixed"
+  #mv "$B/VernacularName.tsv.fixed" "$B/VernacularName.tsv"
+
+  # echo Trying to patch col_vernacular.txt
+  # cp col_vernacular.txt.patch /data/lucene/sources
+  # OUT="$(cd /data/lucene/sources; patch -p0 -r - --forward < col_vernacular.txt.patch)" || echo "${OUT}" | grep "Skipping patch" -q || (echo "$OUT" && false);
+  # echo $OUT
+
 fi
 
 if ($prepare_tests)
@@ -106,15 +147,6 @@ then
   wget -O "$T/ala-name-matching-distri-$namematching_distri/ala-name-matching-distribution-$namematching_distri-distribution.zip" "https://nexus.ala.org.au/service/local/repositories/releases/content/au/org/ala/ala-name-matching-distribution/$namematching_distri/ala-name-matching-distribution-$namematching_distri-distribution.zip"
   (cd "$T/ala-name-matching-distri-$namematching_distri/"; unzip -q "ala-name-matching-distribution-$namematching_distri-distribution.zip")
 fi
-
-echo Fixing: https://github.com/gbif/portal-feedback/issues/3781
-egrep -v '^2925549	\\.*The Woody Plants of Korea' "$B/VernacularName.tsv" > "$B/VernacularName.tsv.fixed"
-mv "$B/VernacularName.tsv.fixed" "$B/VernacularName.tsv"
-
-# echo Trying to patch col_vernacular.txt
-# cp col_vernacular.txt.patch /data/lucene/sources
-# OUT="$(cd /data/lucene/sources; patch -p0 -r - --forward < col_vernacular.txt.patch)" || echo "${OUT}" | grep "Skipping patch" -q || (echo "$OUT" && false);
-# echo $OUT
 
 if ($namematching_index_legacy)
 then
@@ -175,6 +207,6 @@ then
     rm "$T/$DWCA_FILE"
   fi
 
-  (cd $B; zip "$T/$DWCA_FILE" * --exclude Taxon.tsv.orig Taxon-tests.tsv issues.tsv *-sorted )
+  (cd $B; zip "$T/$DWCA_FILE" * --exclude *.orig *-tests.tsv issues.tsv *-sorted )
 fi
 
