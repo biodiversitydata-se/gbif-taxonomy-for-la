@@ -50,18 +50,18 @@ Download the gbif taxonomy:
 ```bash
 ./gbif-taxonomy-for-la-docker --backbone 2023-12-18
 ```
+Optionally, filter common names from VernacularName.tsv based on language passed as comma seperated list:
+
+```bash
+./gbif-taxonomy-for-la-docker --backbone --filter_lang=en,sv 2023-12-18
+```
 
 Split `scientificName` and `scientificNameAuthorship`, and generate indexes using a date as file suffix:
 
 ```bash
-./gbif-taxonomy-for-la-docker --namematching-distri=4.3 --name-authors  --namematching-index --namematching-index-legacy 2023-12-18
+./gbif-taxonomy-for-la-docker --namematching-distri=4.3 --name-authors --namematching-index --namematching-index-legacy 2023-12-18
 ```
 
-Optionally, filter common names from VernacularName.tsv based on language passed as comma seperated list and generate indexes using a date as file suffix:
-
-```bash
-./gbif-taxonomy-for-la-docker --namematching-distri=4.3 --filter_lang=en,sv  --namematching-index --namematching-index-legacy 2023-12-18
-```
 Just generate the indexes:
 
 ```bash
