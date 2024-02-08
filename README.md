@@ -8,6 +8,7 @@ This is a set of utilities to convert the GBIF Backbone Taxonony for it usage by
 
 - Download the current GBIB backbone taxonomy and [some dependencies](https://github.com/AtlasOfLivingAustralia/ala-name-matching) 
 - Separate `scientificName` and `scientificNameAuthorship` from `Taxon.txv`
+- Generate a subset of the original `VernacularName.tsv` file based on the `language` field.
 - Detect issues during this convertion that can be reported back to GBIF (see `target/backbone/issues.tsv`).
 - Workaround for some issues in the taxonomy that prevent the nameindexer to work properly.
 - Generate lucene 6 and lucene 8 indexes for us by LA portals (for nameindexer, namematching-service and sensitive-data-service)
@@ -33,7 +34,10 @@ docker build . --tag gbif-taxonomy-for-la
 Options:
       --backbone                    Download GBIF backbone taxonomy
       --name-authors                Split name and authors from the GBIF backbone
-      --namematching-distri=<nmv>   Download ALA namematching-distribution version [default: 4.2].
+      --prepare-tests               Prepare tests
+      --tests                       Run tests
+      --filter_lang=<langs>         Filter VernacularName.tsv file for given language [default: ].
+      --namematching-distri=<nmv>   Download ALA namematching-distribution version [default: 4.3].
       --namematching-index          Generate namematching index
       --namematching-index-legacy   Generate namematching index legacy (pre namemaching-service)
       --dwca                        Regenerate the dwca zip
@@ -50,9 +54,14 @@ Download the gbif taxonomy:
 Split `scientificName` and `scientificNameAuthorship`, and generate indexes using a date as file suffix:
 
 ```bash
-./gbif-taxonomy-for-la-docker --namematching-distri=4.2 --name-authors  --namematching-index --namematching-index-legacy 2023-12-18
+./gbif-taxonomy-for-la-docker --namematching-distri=4.3 --name-authors  --namematching-index --namematching-index-legacy 2023-12-18
 ```
 
+Optionally, filter common names from VernacularName.tsv based on language passed as comma seperated list and generate indexes using a date as file suffix:
+
+```bash
+./gbif-taxonomy-for-la-docker --namematching-distri=4.3 --filter_lang=en,sv  --namematching-index --namematching-index-legacy 2023-12-18
+```
 Just generate the indexes:
 
 ```bash
