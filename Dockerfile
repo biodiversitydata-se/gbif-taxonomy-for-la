@@ -44,7 +44,7 @@ RUN mkdir -p /usr/lib/nameindexer \
 
 #RUN mv "/data/lucene/sources/backbone/Taxon.tsv" "/data/lucene/sources/backbone/Taxon.tsv.orig"
 
-RUN mkdir /data/lucene/target/
+RUN mkdir -p /data/lucene/target
 
 COPY package*.json ./
 RUN npm install
@@ -57,7 +57,8 @@ COPY ./groups.json /data/ala-namematching-service/config/groups.json
 RUN wget https://nexus.ala.org.au/repository/releases/au/org/ala/names/ala-namematching-server/1.8.1/ala-namematching-server-1.8.1.jar -O /data/ala-namematching-server.jar
 COPY ./config.yml /data/config.yml
 
-COPY col_vernacular.txt.patch  main.js taxonTransform.js gbif-taxonomy-for-la ./
+#COPY col_vernacular.txt.patch
+COPY main.js taxonTransform.js gbif-taxonomy-for-la ./
 COPY test test
 
 VOLUME /data/lucene/target
