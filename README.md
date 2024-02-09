@@ -56,10 +56,10 @@ Optionally, filter common names from VernacularName.tsv based on language passed
 ./gbif-taxonomy-for-la-docker --backbone --filter_lang=en,sv 2023-12-18
 ```
 
-Split `scientificName` and `scientificNameAuthorship`, and generate indexes using a date as file suffix:
+Full process, download nameindex, select lang, split `scientificName` and `scientificNameAuthorship`, and generate indexes and recreate modified backbone dwca using a date as file suffix:
 
 ```bash
-./gbif-taxonomy-for-la-docker --namematching-distri=4.3 --name-authors --namematching-index --namematching-index-legacy 2023-12-18
+./gbif-taxonomy-for-la-docker --backbone --filter_lang=en,sv --name-authors --namematching-distri=4.3 --namematching-index --namematching-index-legacy --dwca 2024-02-09-sv 
 ```
 
 Just generate the indexes:
