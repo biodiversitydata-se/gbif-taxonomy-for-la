@@ -5,6 +5,7 @@ RUN apt-get update && apt-get install -y wget zip unzip curl bash procps
 ARG NODE_VERSION=18
 ARG URL_IRMNG=https://www.irmng.org/export/IRMNG_genera_DwCA.zip
 ARG URL_NAMESDIST=https://nexus.ala.org.au/service/local/repositories/releases/content/au/org/ala/ala-name-matching-distribution/4.3/ala-name-matching-distribution-4.3-distribution.zip
+ARG URL_NAMESDIST_LEGACY=https://nexus.ala.org.au/repository/releases/au/org/ala/ala-name-matching/3.5/ala-name-matching-3.5-distribution.zip
 ARG URL_GBIF_BACKBONE=https://hosted-datasets.gbif.org/datasets/backbone/current/backbone.zip
 
 # install NodeJS
@@ -29,11 +30,17 @@ RUN mkdir -p /data/lucene/sources/IRMNG_DWC_HOMONYMS \
     && unzip -u /data/lucene/sources/IRMNG_DWC_HOMONYMS.zip -d /data/lucene/sources/IRMNG_DWC_HOMONYMS \
     && rm /data/lucene/sources/IRMNG_DWC_HOMONYMS.zip
 
+# Legacy nameindexer
 RUN mkdir -p /usr/lib/nameindexer \
-    && wget "$URL_NAMESDIST" -O /usr/lib/nameindexer/ala-name-matching-distribution.zip \
+    && wget "$URL_NAMESDIST_LEGACY" -O /usr/lib/nameindexer/ala-name-matching-distribution.zip \
     && unzip -u /usr/lib/nameindexer/ala-name-matching-distribution.zip -d /usr/lib/nameindexer \
-    && rm /usr/lib/nameindexer/ala-name-matching-distribution.zip \
-    && chmod +x /usr/lib/nameindexer/*.sh
+    && rm /usr/lib/nameindexer/ala-name-matching-distribution.zip
+COPY log4j.xml /usr/lib/nameindexer/log4j.xml
+COPY nameindexer.sh /usr/lib/nameindexer/nameindexer
+RUN mv /usr/lib/nameindexer/ala-name-matching-3.5.jar /usr/lib/nameindexer/nameindexer.jar \
+    && cat /usr/lib/nameindexer/nameindexer.jar >> /usr/lib/nameindexer/nameindexer \
+    && chmod +x /usr/lib/nameindexer/nameindexer \
+    && ln -s /usr/lib/nameindexer/nameindexer /usr/bin/nameindexer
 
 #RUN mkdir -p /data/lucene/sources/backbone \
 #    && wget "$URL_GBIF_BACKBONE" -O /data/lucene/sources/backbone.zip

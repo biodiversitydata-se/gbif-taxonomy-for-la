@@ -164,7 +164,7 @@ then
 #  java -Dlog4j.configuration=file:/usr/lib/nameindexer/log4j.xml -Dfile.encoding=UTF8 -Djava.util.Arrays.useLegacyMergeSort=true -Xmx8g -Xms1g \
 #    -jar /usr/lib/nameindexer/nameindexer.*jar -all --dwca $B --irmng /data/lucene/sources/IRMNG_DWC_HOMONYMS
 
-  /usr/lib/nameindexer/index.sh --all --dwca "$B" --target /data/lucene/namematching --irmng /data/lucene/sources/IRMNG_DWC_HOMONYMS/ # --common "$B/VernacularName.tsv"
+  /usr/lib/nameindexer/nameindexer --all --dwca "$B" --target /data/lucene/namematching --irmng /data/lucene/sources/IRMNG_DWC_HOMONYMS/ --common "$B/VernacularName.tsv"
 
   cp -a /data/lucene/namematching "$T/$NTLO"
   (cd "$T"; tar cvfz "$NTL" "$NTLO")
@@ -173,6 +173,7 @@ fi
 if ($namematching_index)
 then
   TMPDIR="$T/tmp/"
+  mkdir -p $TMPDIR
   export JAVA_OPTIONS="-Xmx3g -Xms3g -Djava.io.tmpdir=$TMPDIR"
 
   if [[ ! -d "$T/ala-name-matching-distri-$namematching_distri" ]]
